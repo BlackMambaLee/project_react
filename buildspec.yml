@@ -15,13 +15,13 @@ phases:
       - echo "pre_build"
       - aws --version
       - echo "Login to AWS ECR docker registry"
-      - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${REGISTRY}
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REGISTRY
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker buildx create --use --name multiarch
-      - docker buildx build --push --platform=linux/amd64,linux/arm64 -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${REGISTRY_NAME}:${IMAGE_TAG} ./
+      - docker buildx build --push --platform=linux/amd64,linux/arm64 -t ${AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REGISTRY_NAME:$IMAGE_TAG ./
       # - docker tag ${REGISTRY_NAME}:${IMAGE_TAG} ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${REGISTRY_NAME}:${IMAGE_TAG}
   post_build:
     commands:
