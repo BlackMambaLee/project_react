@@ -20,7 +20,7 @@ export const mainDataCall = async() => {
 
 export const getMemoAllCall = async() => {
     try {
-        const response = await defaultInstance.get('/memo/all')
+        const response = await defaultInstance.get('/memoall')
         return response
     } catch (error) {
         console.log(error)
@@ -31,7 +31,7 @@ export const getMemoOneCall = async(param) => {
     if (!isNaN(Number(param)))
     {
         try {
-            const response = await defaultInstance.get('/memo/' + param)
+            const response = await defaultInstance.get('/memo?id=' + param)
             return response
         } catch (error) {
             console.log(error)
