@@ -20,7 +20,7 @@ export const mainDataCall = async() => {
 
 export const getMemoAllCall = async() => {
     try {
-        const response = await defaultInstance.get('/memoall')
+        const response = await defaultInstance.get('/memo/all')
         return response
     } catch (error) {
         console.log(error)
