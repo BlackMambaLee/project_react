@@ -37,7 +37,7 @@ const OnePoster = ({id, title, content}) => {
                 setShowModalSwitch(false);
             }, 3000);
             return;
-        } else if (changeTitle === title || changeContent === content) {
+        } else if (changeTitle === title && changeContent === content) {
             // title 또는 content가 비어있을 경우 Toast를 보여줌
             setShowModalChange(true);
             // 3초 후에 Toast를 자동으로 닫음
