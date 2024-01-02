@@ -37,7 +37,7 @@ const OnePoster = ({id, title, content}) => {
                 setShowModalSwitch(false);
             }, 3000);
             return;
-        } else if (changeTitle.match(title) || changeContent.match(content)) {
+        } else if (changeTitle === title || changeContent === content) {
             // title 또는 content가 비어있을 경우 Toast를 보여줌
             setShowModalChange(true);
             // 3초 후에 Toast를 자동으로 닫음
@@ -233,8 +233,8 @@ const Poster = () => {
         const getDetailPage = async (id) => {
             if (!isNaN(Number(id)))
                 await getMemoOneCall(id).then((res) => {
-                    setMemoOne(res.data)
-                    if (res.data.length === 0)
+                    setMemoOne([res.data])
+                    if (Array.isArray(res.data.length) === 0)
                         navigate('/poster/new')
                 });
             else
@@ -251,7 +251,7 @@ const Poster = () => {
                         <OnePoster {...item} key={index}/>
                 ))
             ) : (
-                <p></p>
+                <p>왜?</p>
             )
             ) : (
                 <NewPoster/>
