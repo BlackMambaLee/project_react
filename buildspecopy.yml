@@ -22,7 +22,7 @@ phases:
       - echo Building the Docker image...
       # - docker buildx create --use --name multiarch
       # - docker buildx build --push --platform=linux/amd64,linux/arm64 -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REGISTRY_NAME:$IMAGE_TAG ./
-      - docker build -t $REGISTRY_NAME:$IMAGE_TAG ./
+      - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REGISTRY_NAME:$IMAGE_TAG ./
   post_build:
     commands:
       # - echo Build completed on `date`
