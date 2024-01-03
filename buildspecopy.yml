@@ -10,7 +10,7 @@ phases:
       # - curl -sL $BUILDX_BINARY_URL -o ~/.docker/cli-plugins/docker-buildx
       # - chmod +x ~/.docker/cli-plugins/docker-buildx
       # - docker run --privileged --rm tonistiigi/binfmt --install all
-      - ls -al
+      # - ls -al
   pre_build:
     commands:
       - echo "pre_build"
@@ -30,9 +30,10 @@ phases:
       # - echo Pushing the Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REGISTRY_NAME:$IMAGE_TAG
       - echo "updated line for codebuild ci"
-      - zip deploy.zip deploy/appspec.yml deploy/after_install.sh
+      # - zip deploy.zip deploy/appspec.yml deploy/after_install.sh
 
 artifacts:
   files: 
-    - 'deploy.zip'  # 빌드된 모든 파일을 포함
+    - 'deployafter_install.sh'
+    - 'deploy/appspec.yml'
   name: deploy_test  # 아티팩트의 이름
