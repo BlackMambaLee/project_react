@@ -30,7 +30,7 @@ phases:
       # - echo Pushing the Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REGISTRY_NAME:$IMAGE_TAG
       - echo "updated line for codebuild ci"
-      - zip deploy.zip appspec.yml after_install.sh
+      - zip deploy.zip deploy/appspec.yml deploy/after_install.sh
 
 artifacts:
   files: 
