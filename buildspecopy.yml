@@ -29,3 +29,6 @@ phases:
       # - echo Pushing the Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REGISTRY_NAME:$IMAGE_TAG
       - echo "updated line for codebuild ci"
+artifacts:
+  files: '**/*'
+  name: MyArtifact
