@@ -29,16 +29,16 @@ phases:
       # - echo Pushing the Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$REGISTRY_NAME:$IMAGE_TAG
       - echo "updated line for codebuild ci"
-artifacts:
-  files: 
-    - '**/*'  # 빌드된 모든 파일을 포함
-  base-directory: '/deploy-martins'  # 아티팩트를 찾을 기본 디렉토리
-  discard-paths: no  # 디렉토리 경로를 그대로 유지
-  name: test  # 아티팩트의 이름
-  # secondary-artifacts:  # 추가 아티팩트 정의 (선택 사항)
-  #   additional-artifact:
-  #     files:
-  #       - 'path/to/additional/*'
-  #     base-directory: '/additional'
-  #     discard-paths: yes
-  #     name: additional-artifac
+# artifacts:
+#   files: 
+#     - '**/*'  # 빌드된 모든 파일을 포함
+#   base-directory: '/'  # 아티팩트를 찾을 기본 디렉토리
+#   discard-paths: no  # 디렉토리 경로를 그대로 유지
+#   name: my-artifact  # 아티팩트의 이름
+#   secondary-artifacts:  # 추가 아티팩트 정의 (선택 사항)
+#     additional-artifact:
+#       files:
+#         - 'path/to/additional/*'
+#       base-directory: '/additional'
+#       discard-paths: yes
+#       name: additional-artifac
