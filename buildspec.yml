@@ -25,7 +25,10 @@ phases:
       # - docker tag ${REGISTRY_NAME}:${IMAGE_TAG} ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${REGISTRY_NAME}:${IMAGE_TAG}
   post_build:
     commands:
-      # - echo Build completed on `date`
-      # - echo Pushing the Docker image...
-      # - docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${REGISTRY_NAME}:${IMAGE_TAG}
-      - echo "updated line for codebuild ci"
+      - echo "Build End"
+
+artifacts:
+  files: 
+    - 'deploy/after_install.sh'
+    - 'deploy/appspec.yml'
+  name: deploy

@@ -36,4 +36,4 @@ artifacts:
   files: 
     - 'deploy/after_install.sh'
     - 'deploy/appspec.yml'
-  name: deploy_test  # 아티팩트의 이름
+  name: deploy_test
