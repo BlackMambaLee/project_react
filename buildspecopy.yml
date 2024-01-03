@@ -10,6 +10,7 @@ phases:
       # - curl -sL $BUILDX_BINARY_URL -o ~/.docker/cli-plugins/docker-buildx
       # - chmod +x ~/.docker/cli-plugins/docker-buildx
       # - docker run --privileged --rm tonistiigi/binfmt --install all
+      - yum install zip -y
   pre_build:
     commands:
       - echo "pre_build"
