@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL='http://192.168.8.150:8080'
+const BASE_URL='https://api.smallcloud.monster'
 
 const axiosApi = (url, options) => {
     const instance = axios.create({
