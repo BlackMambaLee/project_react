@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14
+      nodejs: 18
     commands:
       - echo "Docker Buildx Install..."
       - BUILDX_BINARY_URL=$(curl -sLo - https://api.github.com/repos/docker/buildx/releases/latest | jq '.assets[] | select(.browser_download_url | contains("linux-amd64")).browser_download_url' -r)
