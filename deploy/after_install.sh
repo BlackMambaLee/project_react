@@ -3,11 +3,11 @@
 # 당신의 ECR 레지스트리 URI
 ECR_REGISTRY="850095925860.dkr.ecr.ap-northeast-2.amazonaws.com"
 # 당신의 ECR 저장소 이름
-ECR_REPOSITORY="react"
+ECR_REPOSITORY="workingscv_front"
 # Docker 이미지 이름
 DOCKER_IMAGE_NAME="latest"
 # Docker 컨테이너 이름
-DOCKER_CONTAINER_NAME="REACT"
+DOCKER_CONTAINER_NAME="WorkingSCV_Front"
 
 # AWS CLI 설정
 AWS_CLI="/usr/bin/aws"
@@ -15,7 +15,6 @@ AWS_REGION="ap-northeast-2"
 AWS_PROFILE="default"
 
 # Docker를 당신의 ECR 레지스트리에 인증
-# $($AWS_CLI ecr get-login --no-include-email --region $AWS_REGION --profile $AWS_PROFILE)
 $($AWS_CLI ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY)
 
 # ECR에서 최신 Docker 이미지를 가져옴
