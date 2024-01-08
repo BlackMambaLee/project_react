@@ -18,8 +18,7 @@ jobs:
         # Enviroment Setting
       - name: Setting Enviroment
         run:
-          echo "DOCKER_HUB_ID=${{secrets.DOCKER_HUB_ID}}" >> .env
-          echo "DOCKER_HUB_ACCESS_TOKEN=${{secrets.DOCKER_HUB_ACCESS_TOKEN}}" >> .env
+          echo "DOCKER_HUB_ID=${{secrets.DOCKER_HUB_ID}}\nDOCKER_HUB_ACCESS_TOKEN=${{secrets.DOCKER_HUB_ACCESS_TOKEN}}" >> .env
 
 
         # Docker Image build
@@ -32,5 +31,5 @@ jobs:
       - name: Check Docker Images
         run: docker images
 
-      - name: Check Docker Images
+      - name: Check Enviroment
         run: cat .env
