@@ -11,11 +11,13 @@ jobs:
         # Enviroment Check
       - name: Checking Enviroment
         run:
-          echo "DOCKER_HUB_ID"
-          echo "DOCKER_HUB_ACCESS_TOKEN"
+          echo "${{secrets.DOCKER_HUB_ID}}"
+          echo "${{secrets.DOCKER_HUB_ACCESS_TOKEN}}"
 
         # Docker Image build
       - name: Docker Setup Buildx
         uses: docker/setup-buildx-action@v3.0.0
         
-      - run: ls -al
+      - run:
+          ls -al
+          docker images
