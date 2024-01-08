@@ -20,4 +20,8 @@ jobs:
         
       - name: Check Files
         run:
+          ls -al
+
+      - name: Check Docker Images
+        run:
           docker images
