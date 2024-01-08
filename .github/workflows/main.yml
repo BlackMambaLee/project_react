@@ -13,6 +13,7 @@ jobs:
         run:
           echo "echo DOCKER_HUB_ID=${{secrets.DOCKER_HUB_ID}} > .env"
           echo "echo DOCKER_HUB_ACCESS_TOKEN=${{secrets.DOCKER_HUB_ACCESS_TOKEN}} > .env"
+          cat .env
 
         # Docker Image build
       - name: Docker Setup Buildx
