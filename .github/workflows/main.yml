@@ -8,11 +8,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-        # Enviroment Check
-      - name: Checking Enviroment
+        # Make .env
+      - name: Make .env
+        run: touch .env
+
+        # Enviroment Setting
+      - name: Setting Enviroment
         run:
-          echo "echo DOCKER_HUB_ID=${{secrets.DOCKER_HUB_ID}} > .env"
-          echo "echo DOCKER_HUB_ACCESS_TOKEN=${{secrets.DOCKER_HUB_ACCESS_TOKEN}} > .env"
+          echo "echo DOCKER_HUB_ID=${{secrets.DOCKER_HUB_ID}}" >> .env
+          echo "echo DOCKER_HUB_ACCESS_TOKEN=${{secrets.DOCKER_HUB_ACCESS_TOKEN}}" >> .env
           cat .env
 
         # Docker Image build
