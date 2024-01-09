@@ -11,11 +11,8 @@ jobs:
       - name: Check Files - Before
         run: ls -al
 
-      # Make .env
-      # - name: Make .env
-      #   run: touch .env
-
       ##### Enviroment Settings
+      
       - name: Setting Enviroment - DOCKER_HUB_ID
         run:
           echo "DOCKER_HUB_ID=${{secrets.DOCKER_HUB_ID}}" >> .env
@@ -23,22 +20,32 @@ jobs:
       - name: Setting Enviroment - DOCKER_HUB_ACCESS_TOKEN
         run:
           echo "DOCKER_HUB_ACCESS_TOKEN=${{secrets.DOCKER_HUB_ACCESS_TOKEN}}" >> .env
+          
       ##### Enviroment Settings
 
       # Docker Buildx Set
       - name: Docker Setup Buildx
         uses: docker/setup-buildx-action@v3.0.0
 
+      # Docker Hub Login
+      - name: Login to DockerHub
+        uses: docker/login-action@v3.0.0
+        with:
+          username: ${{secrets.DOCKER_HUB_ID}}
+          password: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
+
       # Build and push Docker images
       - name: Build and push Docker images
-        ruses: docker/build-push-action@v5.1.0
-          with:
+        uses: docker/build-push-action@v5.1.0
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64, linux/arm64
+          push: ture
+          tags: martinslee/devops_class_flask:latest
 
       - name: Check Files - After
         run: ls -al
-
-      - name: Check Docker Images
-        run: docker images
 
       - name: Check Enviroment
         run: cat .env
