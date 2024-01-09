@@ -39,9 +39,9 @@ jobs:
         uses: docker/build-push-action@v5.1.0
         with:
           context: .
-          file: /Dockerfile
+          file: ./Dockerfile
           platforms: linux/amd64, linux/arm64
-          push: ture
+          push: true
           tags: martinslee/devops_class_flask:latest
 
       - name: Check Files - After
